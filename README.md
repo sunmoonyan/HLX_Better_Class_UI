@@ -8,3 +8,5 @@ CLASS.bodygroups
 ```
 
 ![alt text](https://i.ibb.co/8L81rVqw/image.png)
+Discord : https://discord.gg/c9tse8PhE3
+Workshop : https://steamcommunity.com/sharedfiles/filedetails/?id=3550934093
