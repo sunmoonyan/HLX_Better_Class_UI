@@ -136,12 +136,13 @@ function PANEL:LoadClasses()
     self.list:Clear()
     local character = LocalPlayer():GetCharacter()
     local faction = character:GetFaction()
-    print(LocalPlayer():GetCharacter():GetClass())
     for k, v in ipairs(ix.class.list) do
         local no, why = ix.class.CanSwitchTo(LocalPlayer(), k)
         local itsFull = ("class is full" == why)
+
+    if (no or itsFull) or LocalPlayer():GetCharacter():GetClass()==k then
+
         if (v.faction == faction) then
-       -- if (no or itsFull) then
             local panel = vgui.Create("ixClassPanel", self.list)
             panel:SetClass(v)
             table.insert(self.classPanels, panel)
@@ -151,11 +152,36 @@ function PANEL:LoadClasses()
                  surface.SetDrawColor(20,20,20,200)
                  surface.DrawRect(0, 0, w, h)
                  surface.SetDrawColor(ix.config.Get("color"))
-                 surface.DrawOutlinedRect(0, 0, w, h, 1)
+                 surface.DrawOutlinedRect(0, 0, w, h, 1)   
               end
-            end    
-        end        
-       -- end
+            end
+        end    
+
+
+
+    else
+        if (v.faction == faction) then
+            if LocalPlayer():GetCharacter():GetClass()!=k then
+            local panel = vgui.Create("ixClassPanel", self.list)
+            panel:SetClass(v)
+            table.insert(self.classPanels, panel)
+            self.list:AddItem(panel)
+              function panel:Paint(w,h)
+                 surface.SetDrawColor(10,10,10,200)
+                 surface.DrawRect(0, 0, w, h)
+                 surface.SetDrawColor(Color(10,10,10,225))
+                 surface.DrawOutlinedRect(0, 0, w, h, 1)   
+              end
+            end
+        end
+    end
+
+
+
+
+
+
+
     end
 end
 
