@@ -15,7 +15,7 @@ local PLUGIN = PLUGIN
 
 PLUGIN.name = "Better Class UI"
 PLUGIN.author = "Sunshi"
-PLUGIN.description = "Better class ui."
+PLUGIN.description = "Improve Classes UI."
 
 if CLIENT then
     local PANEL = {}
